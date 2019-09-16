@@ -12,7 +12,7 @@ function add(user) {
 }
 
 function find() {
-  return db("users").select("id", "username", "password");
+  return db("users").select("id", "username");
 }
 
 function findBy(filter) {

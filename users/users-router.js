@@ -3,8 +3,8 @@ const bcrypt = require("bcryptjs");
 const users = require("./users-model");
 
 const router = express.Router();
-
-router.get("/users", (req, res) => {
+const restricted = require("../auth/restricted-middleware");
+router.get("/users", restricted, (req, res) => {
   users
     .find()
     .then(users => {
