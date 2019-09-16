@@ -1,10 +1,10 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-const users = require("./users.model");
+const users = require("./users-model");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/users", (req, res) => {
   users
     .find()
     .then(users => {
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/register", (req, res) => {
   let user = req.body;
 
   const hash = bcrypt.hashSync(user.password);
