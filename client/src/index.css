@@ -14,5 +14,9 @@ code {
     monospace;
 }
 .login-container {
-  margin-top: 40px;
+  margin: 40px;
+}
+
+.login-form-wrapper {
+  margin: 0 auto;
 }

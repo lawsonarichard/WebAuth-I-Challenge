@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = event => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/login", creds)
+      .post("http://localhost:5000/api/auth/login", creds)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
@@ -30,9 +30,11 @@ const Login = () => {
   return (
     <Container className="login-container">
       <Row>
-        <Col lg="6">
+        <Col lg="10" className="login-form-wrapper">
           <Form onSubmit={handleSubmit}>
             <FormGroup>
+              <h1>Login</h1>
+
               <label htmlFor="#username">Username</label>
               <FormInput
                 id="#username"
@@ -53,15 +55,9 @@ const Login = () => {
                 value={creds.password}
               />
             </FormGroup>
-            <Row className="login-btn">
-              <Button block squared>
+            <Row className="login-btn" onClick={handleSubmit}>
+              <Button block squared theme="light">
                 Login
-              </Button>
-            </Row>
-
-            <Row className="login-btn">
-              <Button tag={Link} to="/users" block squared theme="secondary">
-                Sign Up
               </Button>
             </Row>
           </Form>
